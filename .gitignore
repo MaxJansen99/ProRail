@@ -1,3 +1,5 @@
 .idea
-sap_storing_data_hu_subset.csv
+.ipynb_checkpoints
+.virtual_documents
 sap_storing_data_hu_project.csv
+sap_storing_data_hu_subset.csv
