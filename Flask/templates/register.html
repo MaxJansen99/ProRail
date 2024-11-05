@@ -4,8 +4,12 @@
   {{ form.hidden_tag() }}
   <p class="h2 mb-3">Register</p>
   <div class="mb-3">
-      {{ form.username.label }}
-      {{ form.username(class="form-control") }}
+      {{ form.firstname.label }}
+      {{ form.firstname(class="form-control") }}
+  </div>
+  <div class="mb-3">
+    {{ form.lastname.label }}
+    {{ form.lastname(class="form-control") }}
   </div>
   <div class="mb-3">
       {{ form.email.label }}
