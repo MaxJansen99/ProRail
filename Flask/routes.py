@@ -4,6 +4,7 @@ from models import User
 from forms import RegistrationForm, LoginForm
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
+import numpy as np
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -47,8 +48,6 @@ def report():
 @app.route("/old")
 @login_required
 def old():
-  current = int(request.args.get('page', 1))
-
   df = pd.read_csv("static/data/subset.csv")
   df = df[['stm_oorz_code','stm_sap_melddatum','stm_sap_meldtijd','stm_geo_mld','stm_aanntpl_dd','stm_aanntpl_tijd','stm_fh_dd','stm_fh_tijd','stm_techn_mld','stm_prioriteit','stm_fh_duur']]
   df = df.rename(columns={
@@ -65,9 +64,10 @@ def old():
     'stm_fh_duur': 'Duur'
   })
 
-  start = current - 1
-  end = current + 21
-
+  pages = int(np.ceil(len(df) / 22))
+  current = int(request.args.get('page', 1))
+  start = (current - 1) * 22
+  end = current * 22
   data = df[start:end].to_dict(orient="records")
 
-  return render_template("old.html", data=data, current=current)
+  return render_template("old.html", data=data, current=current, start=start, end=end, pages=pages)
