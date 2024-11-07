@@ -58,8 +58,7 @@
     </div>
     <div class="col h-100 p-0 bg-body">
       <nav class="navbar d-flex justify-content-end py-4" style="background:#b71a20;">
-        <p class="text-light m-0">{{ current_user.firstname }} {{ current_user.lastname }}</p>
-        <img src="{{ url_for("static", filename="images/Profile.png") }}" class="img mx-2 my-1" alt="Profile Picture">
+        <p class="text-light m-3">{{ current_user.firstname }} {{ current_user.lastname }}</p>
       </nav>
       {% block content %}
       {% endblock %}

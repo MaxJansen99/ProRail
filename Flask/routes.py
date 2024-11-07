@@ -55,13 +55,13 @@ def old():
     'stm_sap_melddatum': 'Melddatum',
     'stm_sap_meldtijd': 'Meldtijd',
     'stm_geo_mld': 'Geocode',
-    'stm_aanntpl_dd': 'Scheduled Date',
-    'stm_aanntpl_tijd': 'Scheduled Time',
-    'stm_fh_dd': 'Oplosdatum',
-    'stm_fh_tijd': 'Oplostijd',
+    'stm_aanntpl_dd': 'Aannemer Aanwezig Datum',
+    'stm_aanntpl_tijd': 'Aannemer Aanwezig Tijd',
+    'stm_fh_dd': 'Hersteldatum',
+    'stm_fh_tijd': 'Hersteltijd',
     'stm_techn_mld': 'Technischemelding',
     'stm_prioriteit': 'Prioriteit',
-    'stm_fh_duur': 'Duur'
+    'stm_fh_duur': 'Herstelduur'
   })
 
   pages = int(np.ceil(len(df) / 22))
