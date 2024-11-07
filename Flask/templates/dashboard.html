@@ -8,6 +8,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body data-bs-theme="dark">
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="alert alert-{{ category }} alert-dismissible fade">{{ message }}</div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
 <div class="container-fluid">
   <div class="row vh-100">
     <div class="col col-2 p-4" style="background:#b71a20;">
@@ -25,12 +33,12 @@
           </p>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-light">
+          <a href="{{ url_for("report") }}" class="nav-link text-light">
             <i class="bi bi-house"></i> Meld Storing
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link text-light">
+          <a href="{{ url_for("old") }}" class="nav-link text-light">
             <i class="bi bi-stopwatch"></i> Oude Storingen
           </a>
         </li>
@@ -53,6 +61,8 @@
         <p class="text-light m-0">{{ current_user.firstname }} {{ current_user.lastname }}</p>
         <img src="{{ url_for("static", filename="images/Profile.png") }}" class="img mx-2 my-1" alt="Profile Picture">
       </nav>
+      {% block content %}
+      {% endblock %}
     </div>
   </div>
 </div>

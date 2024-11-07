@@ -7,29 +7,29 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/register", methods=["GET", "POST"])
 def register():
   if current_user.is_authenticated:
-    return redirect(url_for("dashboard"))
+    return redirect(url_for("report"))
   form = RegistrationForm()
   if form.validate_on_submit():
     user = User(firstname=form.firstname.data, lastname=form.lastname.data, email=form.email.data)
     user.set_password(form.password.data)
     db.session.add(user)
     db.session.commit()
-    flash("Your account has been created!", "success")
+    flash("Uw account is aangemaakt!", "success")
     return redirect(url_for("login"))
   return render_template("register.html", form=form)
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def login():
   if current_user.is_authenticated:
-    return redirect(url_for("dashboard"))
+    return redirect(url_for("report"))
   form = LoginForm()
   if form.validate_on_submit():
     user = User.query.filter_by(email=form.email.data).first()
     if user and user.check_password(form.password.data):
       login_user(user)
-      return redirect(url_for("dashboard"))
+      return redirect(url_for("report"))
     else:
-      flash("Login Unsuccessful. Please check email and password", "danger")
+      flash("Login Onsuccesvol! Email en wachtwoord combinatie onjuist", "danger")
   return render_template("login.html", form=form)
 
 @app.route('/logout')
@@ -38,7 +38,12 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/')
+@app.route('/report')
 @login_required
-def dashboard():
-    return render_template('dashboard.html')
+def report():
+  return render_template('report.html')
+
+@app.route('/old')
+@login_required
+def old():
+  return render_template('old.html')
