@@ -1,7 +1,7 @@
 .idea
 .ipynb_checkpoints
 .virtual_documents
-sap_storing_data_hu_project.csv
-sap_storing_data_hu_subset.csv
 Flask/__pycache__
 Flask/instance/user.db
+Flask/static/data/subset.csv
+Flask/static/data/fullset.csv
