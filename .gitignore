@@ -3,3 +3,7 @@
 .virtual_documents
 sap_storing_data_hu_project.csv
 sap_storing_data_hu_subset.csv
+Flask/__pycache__
+Flask/instance/user.db
+Flask/static/data/data.csv
+Flask/static/data/LinearRegressionModel.joblib
