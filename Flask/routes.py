@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, request, flash
 from app import app, db
 from models import User
-from forms import RegistrationForm, LoginForm
+from forms import RegistrationForm, LoginForm, PredictForm
 from flask_login import login_user, current_user, logout_user, login_required
 import pandas as pd
 import numpy as np
@@ -43,7 +43,8 @@ def logout():
 @app.route("/report")
 @login_required
 def report():
-  return render_template("report.html")
+  form = PredictForm()
+  return render_template("report.html", form=form)
 
 @app.route("/old")
 @login_required
