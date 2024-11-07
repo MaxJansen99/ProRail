@@ -3,5 +3,5 @@
 .virtual_documents
 Flask/__pycache__
 Flask/instance/user.db
-Flask/static/data/subset.csv
-Flask/static/data/fullset.csv
+Flask/static/data/data.csv
+Flask/static/data/LinearRegressionModel.joblib
