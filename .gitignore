@@ -3,5 +3,6 @@
 .virtual_documents
 .gitignore
 sap_storing_data_hu_project.csv
+sap_storing_data_hu_subset.csv
 neuraal netwerk.py
 newdataset.csv
