@@ -14,7 +14,7 @@ def register():
     user.set_password(form.password.data)
     db.session.add(user)
     db.session.commit()
-    flash("Uw account is aangemaakt!", "success")
+    flash("Uw account is aangemaakt! U kunt nu inloggen.", "success")
     return redirect(url_for("login"))
   return render_template("register.html", form=form)
 
@@ -29,7 +29,7 @@ def login():
       login_user(user)
       return redirect(url_for("report"))
     else:
-      flash("Login Onsuccesvol! Email en wachtwoord combinatie onjuist", "danger")
+      flash("Login niet succesvol! Email en wachtwoord combinatie onjuist.", "danger")
   return render_template("login.html", form=form)
 
 @app.route('/logout')
