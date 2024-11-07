@@ -48,7 +48,7 @@ def report():
 @app.route("/old")
 @login_required
 def old():
-  df = pd.read_csv("static/data/subset.csv")
+  df = pd.read_csv("static/data/data.csv")
   df = df[['stm_oorz_code','stm_sap_melddatum','stm_sap_meldtijd','stm_geo_mld','stm_aanntpl_dd','stm_aanntpl_tijd','stm_fh_dd','stm_fh_tijd','stm_techn_mld','stm_prioriteit','stm_fh_duur']]
   df = df.rename(columns={
     'stm_oorz_code': 'Oorzaakcode',
