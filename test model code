@@ -1,6 +1,6 @@
 import pandas as pd
 from joblib import load
-df = pd.read_csv("datamodel.csv")
+df = pd.read_csv('newdataset.csv')
 data= pd.read_csv("Validatieset 2024-2025 Excel.csv")
 model = load("LinearRegressionModel.joblib")
 
@@ -18,34 +18,47 @@ def similar_data(oorz_code,geo_mld,stm_techn_mld):
         print(f"gegevens met  oorzaak code:{oorz_code}")
         return data['targetherstel'].mean(), data['targetherstel'].max(), data['targetherstel'].min()
 
-def model(stm_oorz_code,stm_sap_melddatum,stm_sap_meldtijd,stm_aanntpl_tijd,stm_geo_mld,stm_techn_mld, stm_prioriteit):
-    d = {'stm_oorz_code': stm_oorz_code, 'stm_sap_melddatum': stm_sap_melddatum,'stm_sap_meldtijd': stm_sap_meldtijd,
-         'stm_geo_mld' : stm_geo_mld,'stm_aanntpl_tijd' : stm_aanntpl_tijd,'stm_techn_mld':stm_techn_mld,'stm_prioriteit':stm_prioriteit}
 
-    dataframe = pd.DataFrame(d)
+def model(stm_oorz_code, stm_sap_melddatum, stm_sap_meldtijd, stm_aanntpl_tijd, stm_geo_mld, stm_techn_mld,
+          stm_prioriteit):
+    print(df.loc[0, 'stm_geo_mld'])
+    df.loc[0, 'stm_oorz_code'] = stm_oorz_code.iloc[0]
+    df.loc[0, 'stm_sap_melddatum'] = stm_sap_melddatum.iloc[0]
+    df.loc[0, 'stm_sap_meldtijd'] = stm_sap_meldtijd.iloc[0]
+    df.loc[0, 'stm_aanntpl_tijd'] = stm_aanntpl_tijd.iloc[0]
+    df.loc[0, 'stm_geo_mld'] = stm_geo_mld.iloc[0]
+    df.loc[0, 'stm_techn_mld'] = stm_techn_mld.iloc[0]
+    df.loc[0, 'stm_prioriteit'] = stm_prioriteit.iloc[0]
 
-    dataframe['stm_sap_meldtijd'] = pd.to_datetime(dataframe['stm_sap_meldtijd'], format='%H:%M:%S', errors='coerce')
-    dataframe['stm_sap_meldtijd'] = dataframe['stm_sap_meldtijd'].apply(lambda x: x.hour * 60 + x.minute)
+    df.loc[0, 'stm_sap_meldtijd'] = pd.to_datetime(df.loc[0, 'stm_sap_meldtijd'], format='%H:%M:%S', errors='coerce')
+    df.loc[0, 'stm_sap_meldtijd'] = df.loc[0, 'stm_sap_meldtijd'].hour * 60 + df.loc[0, 'stm_sap_meldtijd'].minute
 
-    dataframe['stm_aanntpl_tijd'] = pd.to_datetime(dataframe['stm_aanntpl_tijd'], format='%H:%M:%S', errors='coerce')
-    dataframe['stm_aanntpl_tijd'] = dataframe['stm_aanntpl_tijd'].apply(lambda x: x.hour * 60 + x.minute)
+    df.loc[0, 'stm_aanntpl_tijd'] = pd.to_datetime(df.loc[0, 'stm_aanntpl_tijd'], format='%H:%M:%S', errors='coerce')
+    df.loc[0, 'stm_aanntpl_tijd'] = df.loc[0, 'stm_aanntpl_tijd'].hour * 60 + df.loc[0, 'stm_aanntpl_tijd'].minute
 
-    dataframe['stm_sap_melddatum'] = pd.to_datetime(dataframe['stm_sap_melddatum'], format='%d/%m/%Y')
+    df.loc[0, 'stm_sap_melddatum'] = pd.to_datetime(df.loc[0, 'stm_sap_melddatum'], format='%d/%m/%Y')
+    df.loc[0, 'stm_sap_melddatum'] = df.loc[0, 'stm_sap_melddatum'].dayofyear
 
-    dataframe['stm_sap_melddatum'] = dataframe['stm_sap_melddatum'].dt.dayofyear
-    dataframe['stm_oorz_code'] = dataframe['stm_oorz_code'].astype('int32')
-    dataframe['stm_prioriteit'] = dataframe['stm_prioriteit'].astype('int32')
+    df2 = df
+    df2 = pd.concat([df2, pd.get_dummies(df['stm_oorz_code']).astype(int)], axis=1)
+    df2 = pd.concat([df2, pd.get_dummies(df['stm_techn_mld']).astype(int)], axis=1)
+    df2 = pd.concat([df2, pd.get_dummies(df['stm_prioriteit']).astype(int)], axis=1)
+    df2 = pd.concat([df2, pd.get_dummies(df['stm_geo_mld']).astype(int)], axis=1)
 
-    dataframe = pd.concat([dataframe, pd.get_dummies(dataframe['stm_oorz_code']).astype(int)], axis=1)
-    dataframe = pd.concat([dataframe, pd.get_dummies(dataframe['stm_techn_mld']).astype(int)], axis=1)
-    dataframe = pd.concat([dataframe, pd.get_dummies(dataframe['stm_prioriteit']).astype(int)], axis=1)
-    dataframe = pd.concat([dataframe, pd.get_dummies(dataframe['stm_geo_mld']).astype(int)], axis=1)
+    df2 = df2.drop(columns=['stm_oorz_code', 'stm_techn_mld', 'stm_prioriteit', 'stm_geo_mld'])
 
+    feature = df2.drop(
+        columns=['targetherstel', 'stm_aanntpl_dd', 'stm_fh_dd', 'stm_progfh_in_tijd', 'stm_fh_duur', 'stm_fh_tijd',
+                 'stm_progfh_in_tijd'])
+
+    feature.columns = feature.columns.astype(str)
     model = load('LinearRegressionModel.joblib')
-    predictions = model.predict(dataframe)
-    print(predictions)
+    first_value = feature.iloc[0].values.reshape(1, -1)
+    predictions = model.predict(first_value)
+
 
 pd.set_option('display.max_columns', None)
-data=data.loc[[0]]
-model(data['stm_oorz_code'],data['stm_sap_melddatum'],data['stm_sap_meldtijd'],data['stm_aanntpl_tijd'],data['stm_geo_mld'],data['stm_techn_mld'],data['stm_prioriteit'])
+data = data.loc[[0]]
+model(data['stm_oorz_code'], data['stm_sap_melddatum'], data['stm_sap_meldtijd'], data['stm_aanntpl_tijd'],
+      data['stm_geo_mld'], data['stm_techn_mld'], data['stm_prioriteit'])
 
