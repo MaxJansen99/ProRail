@@ -5,3 +5,4 @@ Flask/__pycache__
 Flask/instance/user.db
 Flask/static/data/data.csv
 Flask/static/data/LinearRegressionModel.joblib
+.venv
