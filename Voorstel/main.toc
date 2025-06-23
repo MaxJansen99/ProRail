@@ -1,0 +1,9 @@
+\babel@toc {dutch}{}\relax 
+\contentsline {section}{\numberline {1}Inleiding}{3}{}%
+\contentsline {section}{\numberline {2}Evaluatie}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Projectaanpak}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Pipeline}{4}{}%
+\contentsline {subsection}{\numberline {2.3}Applicatie}{4}{}%
+\contentsline {subsection}{\numberline {2.4}Rapport}{4}{}%
+\contentsline {section}{\numberline {3}Verbetering}{5}{}%
+\contentsline {section}{\numberline {4}Aanpak}{6}{}%
