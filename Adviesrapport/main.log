@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.15)  14 JUL 2025 19:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.7.14)  14 JUL 2025 20:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -47,16 +47,24 @@ File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 \Gin@req@height=\dimen142
 \Gin@req@width=\dimen143
 )
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count270
+\float@exts=\toks18
+\float@box=\box52
+\@float@everytoks=\toks19
+\@floatcapt=\box53
+)
 (/usr/share/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2025/02/14 v25.4 The multilingual framework for pdfLaTeX, LuaLaT
 eX and XeLaTeX
-\babel@savecnt=\count270
+\babel@savecnt=\count271
 \U@D=\dimen144
 \l@unhyphenated=\language90
 
 (/usr/share/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
-\bbl@dirlevel=\count271
+\bbl@dirlevel=\count272
 
 (/usr/share/texmf-dist/tex/generic/babel-dutch/dutch.ldf
 Language: dutch 2021/08/29 v3.8l Dutch support from the babel system
@@ -68,39 +76,39 @@ Package babel Info: Importing font and identification data for dutch
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count272
-\l__pdf_internal_box=\box52
+\l__color_backend_stack_int=\count273
+\l__pdf_internal_box=\box54
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count273
+\scratchcounter=\count274
 \scratchdimen=\dimen145
-\scratchbox=\box53
-\nofMPsegments=\count274
-\nofMParguments=\count275
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count276
+\scratchbox=\box55
+\nofMPsegments=\count275
+\nofMParguments=\count276
+\everyMPshowfont=\toks20
+\MPscratchCnt=\count277
 \MPscratchDim=\dimen146
-\MPnumerator=\count277
-\makeMPintoPDFobject=\count278
-\everyMPtoPDFconversion=\toks19
+\MPnumerator=\count278
+\makeMPintoPDFobject=\count279
+\everyMPtoPDFconversion=\toks21
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -145,15 +153,15 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 11.
+(Font)              <12> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 11.
+(Font)              <8> on input line 12.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 11.
+(Font)              <6> on input line 12.
 <prorail.png, id=1, 2569.6pt x 553.06625pt>
 File: prorail.png Graphic file (type png)
 <use prorail.png>
-Package pdftex.def Info: prorail.png  used on input line 15.
+Package pdftex.def Info: prorail.png  used on input line 16.
 (pdftex.def)             Requested size: 142.26378pt x 30.61705pt.
 
 
@@ -178,39 +186,52 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [4]
 
 [5]
+<bpmn.png, id=27, 835.62187pt x 437.00766pt>
+File: bpmn.png Graphic file (type png)
+<use bpmn.png>
+Package pdftex.def Info: bpmn.png  used on input line 60.
+(pdftex.def)             Requested size: 284.52756pt x 148.80069pt.
 
-[6]
 
-[7{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[6{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./bpmn.png
+ (PNG copy)>]
+
+[7]
 
 [8]
 
 [9]
 
-[10] (./main.aux)
+[10]
+
+[11]
+
+[12]
+
+[13] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2984 strings out of 473190
- 51529 string characters out of 5722593
- 457635 words of memory out of 5000000
- 26221 multiletter control sequences out of 15000+600000
+ 3064 strings out of 473190
+ 52704 string characters out of 5722593
+ 459075 words of memory out of 5000000
+ 26297 multiletter control sequences out of 15000+600000
  563427 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,6n,67p,975b,322s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 59i,6n,67p,1171b,322s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fon
 ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (10 pages, 170618 bytes).
+Output written on main.pdf (13 pages, 254412 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 87 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

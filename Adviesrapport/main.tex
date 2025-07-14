@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx}
+\usepackage{float}
 \usepackage[dutch]{babel}
 
 \title{Adviesrapport: Data-driven Business}
@@ -52,13 +53,51 @@ Om het project af te ronden is er goede documentatie nodig. Je kan wel een werke
 \section{Business Understanding}
 
 \subsection{Process}
-De eerste stap is om het proces te verduidelijken om het door te nemen. Dit is belangrijk omdat wij moeten weten waar wij onze applicatie en voorspellingen toe kunnen passen. Daarvoor hebben wij een BPMN (Business Process Model and Notation) gemaakt om een duidelijk inzicht te krijgen over hoe het proces loopt als er een storing optreed. BPMN is een standaard methode om bedrijfsprocessen visueel weer te geven, zodat iedereen begrijpt hoe de stappen verlopen. Daaruit kunnen wij ook uitzoeken welke data op de momenten beschikbaar is. Het kan namelijk zo zijn dat als je een voorspelling wilt maken, dat je een deel van de benodigde data dan nog niet hebt.
+De eerste stap in het project, is het in kaart brengen van het probleem, en de oplossing waar we naartoe moeten werken. Om het probleem in kaar te brengen zijn wij druk bezig geweest met de mensen van ProRail om alles in kaart te brengen. Het proces begint wanneer iemand (de melder) een probleem opmerkt en contact opneemt met de meldkamer. De meldkamer zoekt vervolgens een aannemer die beschikbaar is en belt deze op. Zodra de aannemer onderweg is, maakt hij een prognose van het probleem. Op basis daarvan wordt bepaald of de treindienstregeling moet worden aangepast. Als dat zo is, wordt de planner op de hoogte gebracht. De aannemer komt aan op locatie en lost het probleem op. Tijdens dit hele proces worden belangrijke gegevens vastgelegd, zoals de oorzaak, locatie en duur van de storing. Zodra het probleem is opgelost, communiceert de meldkamer dit terug naar de betrokken partijen. De aannemer vertrekt en als alles in orde is, worden de treinen weer hervat. Dit hele proces is belangrijk om te snappen, omdat wij hierdoor weten op welk moment er welke data beschikbaar is, en waar onze applicatie het meest van waarde kan zijn.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{bpmn.png}
+    \caption{BPMN (Business Process Model and Notation)}
+\end{figure}
 
 \subsection{Stakeholders}
-Lorem Ipsum
+Tijdens het project hebben we gekeken naar wie er allemaal betrokken zijn bij het proces rondom een storing, en wie er dus belang hebben bij een betere manier van voorspellen. Deze belanghebbenden (oftewel stakeholders) zijn de mensen of partijen die direct of indirect geraakt worden door een storing, en dus ook baat hebben bij een goede oplossing. Omdat we te maken hebben met een groot proces met meerdere stappen en afdelingen, zijn er best veel belanghebbenden.
+
+\begin{itemize}
+    \item \textbf{Meldkamer van ProRail:} Hier begint het hele proces. De meldkamer ontvangt de melding van de storing en moet direct actie ondernemen. Ze schakelen een aannemer in en houden contact met alle betrokkenen. Voor hen is het handig om zo snel mogelijk te weten hoe lang iets ongeveer gaat duren, zodat ze kunnen schakelen.
+
+    \item \textbf{Planners van ProRail:} Zodra een storing invloed heeft op het spoor, moeten planners beslissen of er een aangepaste dienstregeling nodig is. Hoe beter ze weten hoe lang een storing gaat duren, hoe beter ze dat kunnen inschatten. Zonder goede informatie is het vaak gokken, en dat zorgt voor extra overlast.
+
+    \item \textbf{Aannemers:} De mensen die daadwerkelijk naar de storing toegaan en het probleem oplossen. Zij geven belangrijke informatie door, zoals de oorzaak en wanneer ze ter plekke zijn. Deze info gebruiken wij in onze modellen om te voorspellen hoe lang het nog gaat duren.
+
+    \item \textbf{Vervoerders:} Als een storing impact heeft op het treinverkeer, zijn de vervoerders daar de dupe van. Zij moeten hun treinen en personeel opnieuw inplannen en zorgen dat reizigers weten waar ze aan toe zijn. Hoe sneller zij weten wat de impact is, hoe sneller ze kunnen schakelen.
+
+    \item \textbf{Reizigers:} De mensen die elke dag met de trein reizen. Zij hebben natuurlijk geen invloed op het proces, maar ze merken de gevolgen wel direct. Door betere voorspellingen kunnen we de vertraging voor hen zoveel mogelijk beperken en beter communiceren wat er aan de hand is.
+
+    \item \textbf{DataLab van ProRail:} Het DataLab is de afdeling binnen ProRail die zich bezighoudt met innovatie en data. Zij hebben ons gevraagd om dit project op te pakken. Ze willen weten of machine learning hierbij kan helpen, en of onze aanpak in de praktijk toegevoegde waarde biedt.
+
+    \item \textbf{Ons projectteam (HU-studenten):} Tot slot zijn wij zelf ook belanghebbenden. Voor ons is het belangrijk dat het project duidelijk afgebakend is, dat de data bruikbaar is, en dat we goede feedback krijgen. Alleen dan kunnen wij iets maken wat echt gebruikt gaat worden.
+\end{itemize}
+
+Elke partij heeft een eigen rol en een eigen doel, maar uiteindelijk willen we allemaal hetzelfde: zo snel mogelijk een storing oplossen, met zo min mogelijk gedoe.
 
 \subsection{Knelpunten}
-Lorem Ipsum
+Tijdens het project kwamen we verschillende knelpunten tegen, zowel in het proces als in de data. Deze punten zorgen ervoor dat het moeilijk is om direct een goed werkend model of systeem te maken. Hieronder de belangrijkste knelpunten die we zijn tegengekomen:
+
+\begin{itemize}
+    \item \textbf{Inzicht in het proces:} In het begin was het onduidelijk hoe het proces precies verliep binnen ProRail. Omdat we extern zijn, wisten we niet wat er allemaal gebeurt vanaf het moment dat een storing gemeld wordt tot aan de oplossing. Daardoor was het lastig om te bepalen waar onze applicatie echt waarde kon toevoegen.
+
+    \item \textbf{Datakwaliteit:} De data waar we mee werken is allesbehalve perfect. Er zitten veel lege velden in, foutieve of inconsistente waarden, en soms ontbreekt essentiële informatie. Dit maakt het moeilijk om betrouwbare voorspellingen te doen. Ook is de data erg technisch en soms lastig te interpreteren.
+
+    \item \textbf{Tijdstip van datatoegang:} Niet alle informatie is meteen beschikbaar wanneer een storing net gemeld is. Sommige data komt pas later in het proces binnen, bijvoorbeeld als de aannemer ter plekke is. Daardoor kunnen we niet altijd meteen een goede voorspelling doen.
+
+    \item \textbf{Complexiteit van het probleem:} Het voorspellen van de duur van een storing is lastig, omdat elke storing anders is. De ene keer is het een kapotte bovenleiding, de andere keer een wisselstoring. Er zijn veel factoren die invloed hebben, en die zijn lang niet altijd duidelijk of meetbaar.
+
+    \item \textbf{Gebrek aan standaardisatie:} Veel waarden in de data zijn handmatig ingevoerd en worden niet altijd op dezelfde manier geregistreerd. Dit zorgt voor ruis in de data en bemoeilijkt het trainen van een goed model.
+\end{itemize}
+
+Deze knelpunten hebben we in kaart gebracht zodat we er tijdens het project rekening mee konden houden. Het helpt ook om realistische verwachtingen te scheppen over wat wel en niet mogelijk is binnen de beschikbare tijd.
 
 \newpage
 \section{Data}
