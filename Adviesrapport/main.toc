@@ -1,0 +1,30 @@
+\babel@toc {dutch}{}\relax 
+\contentsline {section}{\numberline {1}Inleiding}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Achtergrond van het project}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Het belang van een snelle oplossing}{3}{}%
+\contentsline {section}{\numberline {2}Opdracht}{4}{}%
+\contentsline {subsection}{\numberline {2.1}Doel van de opdracht}{4}{}%
+\contentsline {subsection}{\numberline {2.2}Deelopdrachten}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Business Understanding}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Data}{4}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Applicatie}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Documentatie}{5}{}%
+\contentsline {section}{\numberline {3}Business Understanding}{6}{}%
+\contentsline {subsection}{\numberline {3.1}Stakeholders}{6}{}%
+\contentsline {subsection}{\numberline {3.2}Knelpunten}{6}{}%
+\contentsline {subsection}{\numberline {3.3}Procesanalyse}{6}{}%
+\contentsline {subsection}{\numberline {3.4}Beschikbaarheid van de data}{6}{}%
+\contentsline {section}{\numberline {4}Data}{7}{}%
+\contentsline {subsection}{\numberline {4.1}Eerste onderzoek}{7}{}%
+\contentsline {subsection}{\numberline {4.2}Gekozen kolommen}{7}{}%
+\contentsline {subsection}{\numberline {4.3}Opschonen van de data}{7}{}%
+\contentsline {section}{\numberline {5}Modellen}{8}{}%
+\contentsline {subsection}{\numberline {5.1}Gebruikte algoritmes}{8}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Lineaire Regressie}{8}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}Decision Tree}{8}{}%
+\contentsline {subsubsection}{\numberline {5.1.3}Random Forest}{8}{}%
+\contentsline {subsection}{\numberline {5.2}Resultaten van de modellen}{8}{}%
+\contentsline {section}{\numberline {6}Applicatie}{9}{}%
+\contentsline {subsection}{\numberline {6.1}Ontwerp van de applicatie}{9}{}%
+\contentsline {subsection}{\numberline {6.2}Implementatie en veiligheid}{9}{}%
+\contentsline {section}{\numberline {7}Conclusie}{10}{}%

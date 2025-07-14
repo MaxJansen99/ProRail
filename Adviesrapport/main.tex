@@ -1,0 +1,118 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[dutch]{babel}
+
+\title{Adviesrapport: Data-driven Business}
+\author{Yujian Jiang, Max Jansen}
+\date{July 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{figure}
+    \centering
+    \includegraphics[width=5cm]{prorail.png}
+\end{figure}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Inleiding}
+
+\subsection{Achtergrond van het project}
+Voor het vak DataDriven Business is ProRail naar de HU gekomen met de vraag of wij hulp kunnen bieden voor het DataLab. Het DataLab is een afdeling van ProRail, waar in grote hoeveelheden data verzameld wordt, wat daarna geanalyseerd en verwerkt wordt om verbeteringen toe te passen op het spoorwegnet. Het spoorwegnet is erg groot en er zullen altijd wel problemen opduiken van klein naar groot. Dit is voor iedereen erg vervelend. ProRail is daardoor veel bezig met het oplossen van de problemen en de kosten lopen daardoor ook op. En voor de reizigers is het ook vervelend. Die moeten omreizen en zullen zich ergeren als het herhalend optreed. Het is dus van groot belang dat problemen snel en efficiënt worden opgelost om zowel kosten te besparen als de tevredenheid van de reizigers te behouden.
+
+\subsection{Het belang van een snelle oplossing}
+Het is belangrijk dat er snel gehandeld moet worden. Daarvoor moet er wel duidelijk zijn wat de problemen zijn en hoe lang die gaan duren, zodat er vooruit gepland kan worden om de minste vertragingen op te lopen. Als er bijvoorbeeld een storing is, moeten de planners weten hoe lang het ongeveer gaat duren voordat het opgelost is, zodat ze alternatieve routes kunnen plannen of vervangend vervoer kunnen regelen. Nu is er dus gevraagd of er hulp geboden kan worden bij het verduidelijken van de problemen. Er is gevraagd of het mogelijk is om te voorspellen hoe lang een storing gaat duren zodat er op tijd en beter omheen gepland kan worden en de vertragingen zo beperkt mogelijk kunnen blijven.
+
+\newpage
+\section{Opdracht}
+
+\subsection{Doel van de opdracht}
+De opdracht die wij gekregen hebben is om uit te zoeken of het mogelijk is om te voorspellen hoe lang een storing gaat duren. Dit willen ze gaan doen door gebruik te maken van een applicatie die dit kan voorspellen. Op dit moment is de applicatie er nog niet. Die gaan wij maken. Maar voor dat we dat kunnen doen moeten wij inzicht krijgen over het gehele proces. We weten namelijk niet hoe ze bij ProRail aan het werk gaan. Ook moet de data grondig doorgenomen worden. De data moet worden geanalyseerd, opgeschoond en voorbereid voor de modellen die de voorspellingen gaan doen. Dan moet de applicatie gemaakt worden. Hoe het er uit gaat zien, welk model er gekozen word, en hoe het gebruikt gaat worden. Als laatste moet er gedocumenteerd worden. Er moet een duidelijke uitleg zijn, en alles moet gerapporteerd worden. Omdat het proces behoorlijk groot is, gaan we het verdelen in verschillende delen, wat uit eindelijk een geheel moet vormen.
+
+\subsection{Deelopdrachten}
+Hieronder zullen verder in gaan op onze deelopdrachten. Alles valt beter te begrijpen als het individueel uitgelegd kan worden.
+
+\subsubsection{Business Understanding}
+Het eerste deel is de Business Understanding, zodat ons duidelijk wordt waar wij onze taken moeten vervullen en hoe het proces loopt. We doen namelijk een opdracht voor een extern bedrijf waar wij nergens bekend mee zijn. Ons moet duidelijk worden wat er van ons allemaal gevraagd word. We moeten weten wie de stakeholders zijn, waar onze data vandaan komt, en wat de knelpunten zijn. Maar ook hoe hun hele proces loopt, hoe het bedrijf aan het werk gaat, wat onze rol is. Pas als wij snappen hoe ProRail werkt. Kunnen wij een opdracht voor ze maken.
+
+\subsubsection{Data}
+Als het eenmaal duidelijk is wat we moeten gaan doen, is de volgende stap het begrijpen van de data. Zonder de data kunnen we namelijk geen voorspellingen maken. De data is erg ingewikkeld en ver van schoon. We hebben 58 kolommen met allemaal onduidelijke namen. Ook zijn er $\pm$ 800.000 rijen waar we mee werken, en er staan heel veel lege/verkeerde waarden in. Het is dus een zooitje. Nu is het belangrijk om te begrijpen wat alles is, wat er uit gefilterd mag worden en waar we mee doorgaan. Daarnaast moet er goed worden geanalyseerd, zodat er vervolgens drie modellen uitgewerkt kunnen worden.
+ 
+\subsubsection{Applicatie}
+Het belang van de opracht is een werkende applicatie. Dit gaat namelijk gebruikt worden door het personeel in de meldkamer, waar de storingen verwerkt worden. Hier komt het hele project samen. De applicatie gaat een van de gekozen modellen bevatten die de voorspelling gaat doen. Die gecreëerd is uit de analyse van de data. Maar ook omdat we inzicht hebben gecreëerd voor het bedrijf. Ook kan je alle oude data terug vinden om te kijken hoe de oude storingen waren, maar ook hoe lang het duurde voordat ze waren opgelost.
+
+\subsubsection{Documentatie}
+Om het project af te ronden is er goede documentatie nodig. Je kan wel een werkend product neer zetten maar als het niet duidelijk is hoe het gebruikt moet gaan worden kom je niet ver. Er wordt een duidelijke uitleg verwacht van hoe de applicatie gebruikt moet worden, maar ook hoe het model tot stand gekomen is. Er moet namelijk wel een goede reden zijn om geld en tijd te investeren in deze applicatie.
+ 
+\newpage
+\section{Business Understanding}
+
+\subsection{Process}
+De eerste stap is om het proces te verduidelijken om het door te nemen. Dit is belangrijk omdat wij moeten weten waar wij onze applicatie en voorspellingen toe kunnen passen. Daarvoor hebben wij een BPMN (Business Process Model and Notation) gemaakt om een duidelijk inzicht te krijgen over hoe het proces loopt als er een storing optreed. BPMN is een standaard methode om bedrijfsprocessen visueel weer te geven, zodat iedereen begrijpt hoe de stappen verlopen. Daaruit kunnen wij ook uitzoeken welke data op de momenten beschikbaar is. Het kan namelijk zo zijn dat als je een voorspelling wilt maken, dat je een deel van de benodigde data dan nog niet hebt.
+
+\subsection{Stakeholders}
+Lorem Ipsum
+
+\subsection{Knelpunten}
+Lorem Ipsum
+
+\newpage
+\section{Data}
+
+\subsection{Beschikbaarheid van de data}
+Het is dus ook belangrijk om te weten hoe de data in elkaar zit en wat we gaan gebruiken. Door het proces goed te begrijpen, kunnen we bepalen op welk moment in de workflow onze voorspellingen het meest nuttig zijn. Bijvoorbeeld, zodra een storing gemeld wordt, is er nog weinig informatie beschikbaar. Maar wanneer de aannemer ter plekke is, hebben we meer data om een nauwkeurige voorspelling te maken.
+
+\subsection{Eerste onderzoek}
+Daarna zijn we ons gaan focussen op de data. Dit is een van de belangrijkste onderdelen aangezien we moeten weten waar we mee werken. Er moet zekerheid zijn over de data of alles wel juist is. Er staan vaak namelijk verkeerde en/of zelfs lege plekken in de data. Als eerste zijn we gaan onderzoeken wat er allemaal in de data zit.
+
+\subsection{Gekozen kolommen}
+Op het eerste oog zijn wij breedschalig gaan kijken welke kolommen wij willen gebruiken. Uiteindelijk hebben we besloten om de volgende kolommen te gebruiken:
+\begin{itemize}
+    \item stm\_oorz\_code: Dit is de oorzaakcode die geclassificeerd wordt door de aannemer. Het geeft aan wat de oorzaak is van de storing.
+    \item stm\_geo\_mld: Dit is de geocode van waar het incident zich plaatsvindt. Hiermee weten we op welke locatie de storing is.
+    \item stm\_sap\_melddatum: Dit is de datum van wanneer de melding gemaakt is. Dit kan invloed hebben, bijvoorbeeld bij seizoensgebonden problemen.
+    \item stm\_aanntpl\_tijd: Dit is de tijd vanaf wanneer de aannemer aanwezig is. Vanaf dit moment kan de hersteltijd beginnen.
+    \item stm\_techn\_mld: Dit is de categorie waar de incident bij hoort. Bijvoorbeeld of het een mechanisch probleem is of een elektrisch probleem.
+    \item stm\_prioriteit: Dit is de prioriteitcode waarmee aangegeven wordt hoe hoog de prioriteit ligt.
+\end{itemize}
+Deze kolommen hebben we gekozen omdat ze het meest relevant zijn voor het voorspellen van de hersteltijd. Ons target, oftewel wat we willen voorspellen, is targetherstel. Dit is de tijd die het duurt vanaf het moment dat de aannemer aanwezig is tot het moment dat het incident verholpen is.
+
+\subsection{Opschonen van de data}
+De volgende stap is om te zorgen dat er meer duidelijkheid komt over wat de data inhoudt. Het is opgevallen dat er inconsistenties zijn in de data, zoals ontbrekende waarden en foutieve invoer. We moeten deze issues oplossen om accurate voorspellingen te kunnen maken. We hebben daarom de data opgeschoond door ontbrekende waarden te vullen of te verwijderen waar nodig, en fouten te corrigeren. Bijvoorbeeld, als er een tijd ontbreekt, kunnen we die niet gebruiken in ons model. Ook hebben we ervoor gezorgd dat alle data in het juiste formaat staat, zoals het omzetten van datums naar numerieke waarden die het model kan begrijpen.
+
+\newpage
+\section{Modellen}
+
+\subsection{Gebruikte algoritmes}
+Na het opschonen van de data zijn we begonnen met het bouwen van modellen. We hebben verschillende algoritmes getest om te kijken welke het beste resultaat zou geven.
+
+\subsubsection{Lineaire Regressie}
+Lorem Ipsum
+
+\subsubsection{Decision Tree}
+Lorem Ipsum
+
+\subsubsection{Random Forest}
+Lorem Ipsum
+
+\subsection{Resultaten van de modellen}
+Lorem Ispum
+
+\newpage
+\section{Applicatie}
+
+\subsection{Ontwerp van de applicatie}
+Het model waarin de voorspelling wordt gemaakt is erg ingewikkeld en vereist technische kennis. Daarom is er een applicatie gemaakt waarin je op een gebruiksvriendelijke manier hetzelfde resultaat kunt behalen. Omdat een goede applicatie maken veel werk kost, zijn wij als eerste visuele en interactieve ontwerpen gaan maken om te laten zien hoe de applicatie eruit gaat zien. We hebben wireframes en prototypes gemaakt om het ontwerp te testen. De applicatie moet intuïtief zijn, zodat gebruikers zonder technische achtergrond er mee kunnen werken.
+
+\subsection{Implementatie en veiligheid}
+Na dit getest te laten hebben zijn wij begonnen met het uitwerken van de applicatie, die vervolgens op het web geplaatst wordt zodat de betrokkenen er altijd bij kunnen. Omdat de applicatie online staat hebben wij ons ook gefocust op de veiligheid, en is het dus niet toegankelijk voor iedereen. Er is een systeem gebouwd dat ervoor zorgt dat alleen de mensen met een account er toegang tot hebben. We hebben ook gebruik gemaakt van beveiligde verbindingen (SSL) om de data te beschermen. De applicatie bevat ook een helpsectie, zodat gebruikers snel antwoord kunnen vinden op hun vragen.
+
+\newpage
+\section{Conclusie}
+Door het combineren van data-analyse en machine learning is het mogelijk om nauwkeurige voorspellingen te doen over de hersteltijden van storingen. Dit stelt ProRail in staat om beter te plannen en de impact op reizigers te minimaliseren. De ontwikkelde applicatie maakt het eenvoudig voor gebruikers om deze voorspellingen te raadplegen en draagt bij aan een efficiënter spoorwegsysteem. Het decision tree model heeft bewezen het meest effectief te zijn en kan in de toekomst verder verbeterd worden met meer data.
+
+\end{document}
