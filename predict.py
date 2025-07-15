@@ -1,4 +1,4 @@
-import numpy as np
+from datetime import datetime
 import pandas as pd
 from joblib import load
 
@@ -18,6 +18,21 @@ class Predictor:
         Retourneert:
             Een tuple met (lineaire regressie voorspelling, random forest voorspelling)
         """
+
+        # omzetten naar dag van de jaar
+        date_obj = datetime.strptime(data['stm_sap_melddatum'], '%Y/%m/%d')
+        day_of_year = date_obj.timetuple().tm_yday
+        data['stm_sap_melddatum'] = day_of_year
+        print(data['stm_sap_melddatum'])
+
+        # om
+        time_obj = datetime.strptime(data['stm_sap_meldtijd'], '%H:%M')
+        minutes_since_midnight = time_obj.hour * 60 + time_obj.minute
+        data['stm_sap_meldtijd'] = minutes_since_midnight
+
+        time_obj = datetime.strptime(data['stm_aanntpl_tijd'], '%H:%M')
+        minutes_since_midnight = time_obj.hour * 60 + time_obj.minute
+        data['stm_aanntpl_tijd'] = minutes_since_midnight
 
         # Bepaal tijdvakken (15 minuten)
         bin_size = 15
@@ -63,9 +78,9 @@ class Predictor:
 if __name__ == '__main__':
     # Voorbeeld invoerdata
     data = {
-        'stm_sap_melddatum': 131,
-        'stm_sap_meldtijd': 561,
-        'stm_aanntpl_tijd': 608,
+        'stm_sap_melddatum': '2006/02/01',
+        'stm_sap_meldtijd': '09:00',
+        'stm_aanntpl_tijd': '11:00',
         'stm_progfh_in_duur': 52,
         'stm_prioriteit': 2,
         'stm_oorz_code': 218,
