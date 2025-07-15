@@ -1,7 +1,11 @@
 \documentclass{article}
+\usepackage[dutch]{babel}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage[dutch]{babel}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+
+\geometry{a4paper, top=3cm, bottom=3cm, left=2cm, right=2cm}
 
 \title{Adviesrapport: Data-driven Business}
 \author{Yujian Jiang, Max Jansen}
@@ -13,8 +17,10 @@
 
 \begin{figure}
     \centering
-    \includegraphics[width=5cm]{prorail.png}
+    \includegraphics[width=4cm]{prorail.png}
 \end{figure}
+
+\pagestyle{fancy}
 
 \newpage
 \tableofcontents
@@ -35,13 +41,15 @@ Het is belangrijk dat er snel gehandeld moet worden. Daarvoor moet er wel duidel
 De opdracht die wij gekregen hebben is om uit te zoeken of het mogelijk is om te voorspellen hoe lang een storing gaat duren. Dit willen ze gaan doen door gebruik te maken van een applicatie die dit kan voorspellen. Op dit moment is de applicatie er nog niet. Die gaan wij maken. Maar voor dat we dat kunnen doen moeten wij inzicht krijgen over het gehele proces. We weten namelijk niet hoe ze bij ProRail aan het werk gaan. Ook moet de data grondig doorgenomen worden. De data moet worden geanalyseerd, opgeschoond en voorbereid voor de modellen die de voorspellingen gaan doen. Dan moet de applicatie gemaakt worden. Hoe het er uit gaat zien, welk model er gekozen word, en hoe het gebruikt gaat worden. Als laatste moet er gedocumenteerd worden. Er moet een duidelijke uitleg zijn, en alles moet gerapporteerd worden. Omdat het proces behoorlijk groot is, gaan we het verdelen in verschillende delen, wat uit eindelijk een geheel moet vormen.
 
 \subsection{Deelopdrachten}
-Hieronder zullen verder in gaan op onze deelopdrachten. Alles valt beter te begrijpen als het individueel uitgelegd kan worden.
 
 \subsubsection{Business Understanding}
 Het eerste deel is de Business Understanding, zodat ons duidelijk wordt waar wij onze taken moeten vervullen en hoe het proces loopt. We doen namelijk een opdracht voor een extern bedrijf waar wij nergens bekend mee zijn. Ons moet duidelijk worden wat er van ons allemaal gevraagd word. We moeten weten wie de stakeholders zijn, waar onze data vandaan komt, en wat de knelpunten zijn. Maar ook hoe hun hele proces loopt, hoe het bedrijf aan het werk gaat, wat onze rol is. Pas als wij snappen hoe ProRail werkt. Kunnen wij een opdracht voor ze maken.
 
 \subsubsection{Data}
 Als het eenmaal duidelijk is wat we moeten gaan doen, is de volgende stap het begrijpen van de data. Zonder de data kunnen we namelijk geen voorspellingen maken. De data is erg ingewikkeld en ver van schoon. We hebben 58 kolommen met allemaal onduidelijke namen. Ook zijn er $\pm$ 800.000 rijen waar we mee werken, en er staan heel veel lege/verkeerde waarden in. Het is dus een zooitje. Nu is het belangrijk om te begrijpen wat alles is, wat er uit gefilterd mag worden en waar we mee doorgaan. Daarnaast moet er goed worden geanalyseerd, zodat er vervolgens drie modellen uitgewerkt kunnen worden.
+
+\subsubsection{Modellen}
+Als we eenmaal inzicht hebben in de data, kunnen we beginnen met het bouwen van modellen. Het doel hiervan is om voorspellingen te doen die het werkproces kunnen ondersteunen. We gaan meerdere modellen testen, zodat we kunnen bepalen welke het beste werkt voor onze situatie. Belangrijk is dat we goed uitleggen waarom we bepaalde keuzes maken, welke algoritmes we gebruiken, en hoe accuraat de modellen zijn. Elk model heeft zijn eigen voor- en nadelen, en moet goed geanalyseerd worden. Uiteindelijk kiezen we het model dat het meest betrouwbaar is en het beste past bij de voorspellingen die gemaakt moeten worden. Dit model wordt dan verwerkt in de applicatie.
  
 \subsubsection{Applicatie}
 Het belang van de opracht is een werkende applicatie. Dit gaat namelijk gebruikt worden door het personeel in de meldkamer, waar de storingen verwerkt worden. Hier komt het hele project samen. De applicatie gaat een van de gekozen modellen bevatten die de voorspelling gaat doen. Die gecreëerd is uit de analyse van de data. Maar ook omdat we inzicht hebben gecreëerd voor het bedrijf. Ook kan je alle oude data terug vinden om te kijken hoe de oude storingen waren, maar ook hoe lang het duurde voordat ze waren opgelost.
@@ -84,40 +92,47 @@ Tijdens het project hebben we gekeken naar wie er allemaal betrokken zijn bij he
 Tijdens het project kwamen we verschillende knelpunten tegen, zowel in het proces als in de data. Deze punten zorgen ervoor dat het moeilijk is om direct een goed werkend model of systeem te maken. Hieronder de belangrijkste knelpunten die we zijn tegengekomen:
 
 \begin{itemize}
-    \item \textbf{Inzicht in het proces:} In het begin was het onduidelijk hoe het proces precies verliep binnen ProRail. Omdat we extern zijn, wisten we niet wat er allemaal gebeurt vanaf het moment dat een storing gemeld wordt tot aan de oplossing. Daardoor was het lastig om te bepalen waar onze applicatie echt waarde kon toevoegen.
-
-    \item \textbf{Datakwaliteit:} De data waar we mee werken is allesbehalve perfect. Er zitten veel lege velden in, foutieve of inconsistente waarden, en soms ontbreekt essentiële informatie. Dit maakt het moeilijk om betrouwbare voorspellingen te doen. Ook is de data erg technisch en soms lastig te interpreteren.
-
-    \item \textbf{Tijdstip van datatoegang:} Niet alle informatie is meteen beschikbaar wanneer een storing net gemeld is. Sommige data komt pas later in het proces binnen, bijvoorbeeld als de aannemer ter plekke is. Daardoor kunnen we niet altijd meteen een goede voorspelling doen.
-
-    \item \textbf{Complexiteit van het probleem:} Het voorspellen van de duur van een storing is lastig, omdat elke storing anders is. De ene keer is het een kapotte bovenleiding, de andere keer een wisselstoring. Er zijn veel factoren die invloed hebben, en die zijn lang niet altijd duidelijk of meetbaar.
-
-    \item \textbf{Gebrek aan standaardisatie:} Veel waarden in de data zijn handmatig ingevoerd en worden niet altijd op dezelfde manier geregistreerd. Dit zorgt voor ruis in de data en bemoeilijkt het trainen van een goed model.
+  \item \textbf{Inzicht in het proces:} In het begin was het onduidelijk hoe het proces precies verliep binnen ProRail. Omdat we extern zijn, wisten we niet wat er allemaal gebeurt vanaf het moment dat een storing gemeld wordt tot aan de oplossing. Daardoor was het lastig om te bepalen waar onze applicatie echt waarde kon toevoegen.
+  \item \textbf{Datakwaliteit:} De data waar we mee werken is allesbehalve perfect. Er zitten veel lege velden in, foutieve of inconsistente waarden, en soms ontbreekt essentiële informatie. Dit maakt het moeilijk om betrouwbare voorspellingen te doen. Ook is de data erg technisch en soms lastig te interpreteren.
+  \item \textbf{Tijdstip van datatoegang:} Niet alle informatie is meteen beschikbaar wanneer een storing net gemeld is. Sommige data komt pas later in het proces binnen, bijvoorbeeld als de aannemer ter plekke is. Daardoor kunnen we niet altijd meteen een goede voorspelling doen.
+  \item \textbf{Complexiteit van het probleem:} Het voorspellen van de duur van een storing is lastig, omdat elke storing anders is. De ene keer is het een kapotte bovenleiding, de andere keer een wisselstoring. Er zijn veel factoren die invloed hebben, en die zijn lang niet altijd duidelijk of meetbaar.
+  \item \textbf{Gebrek aan standaardisatie:} Veel waarden in de data zijn handmatig ingevoerd en worden niet altijd op dezelfde manier geregistreerd. Dit zorgt voor ruis in de data en bemoeilijkt het trainen van een goed model.
 \end{itemize}
 
 \newpage
 \section{Data}
 
-\subsection{Beschikbaarheid van de data}
+\subsection{Waar we mee werken}
+Nu we weten hoe het hele proces verloopt, kunnen we ons gaan richten op mischien wel het belangrijkste deel van het project: de data. Op basis van de data gaan de voorspellingen gemaakt worden namelijk. En als we niet goed begrijpen hoe de data werkt, kunnen we geen goede modellen maken. Daarom zijn wij grondig onderzoek gaan doen waar we mee te werk gaan. 
+
 Het is dus ook belangrijk om te weten hoe de data in elkaar zit en wat we gaan gebruiken. Door het proces goed te begrijpen, kunnen we bepalen op welk moment in de workflow onze voorspellingen het meest nuttig zijn. Bijvoorbeeld, zodra een storing gemeld wordt, is er nog weinig informatie beschikbaar. Maar wanneer de aannemer ter plekke is, hebben we meer data om een nauwkeurige voorspelling te maken.
 
-\subsection{Eerste onderzoek}
+\subsection{Het Onderzoek}
+JUPYTER NOTEBOOK NALOPEN
+
 Daarna zijn we ons gaan focussen op de data. Dit is een van de belangrijkste onderdelen aangezien we moeten weten waar we mee werken. Er moet zekerheid zijn over de data of alles wel juist is. Er staan vaak namelijk verkeerde en/of zelfs lege plekken in de data. Als eerste zijn we gaan onderzoeken wat er allemaal in de data zit.
 
-\subsection{Gekozen kolommen}
+\subsection{Opschonen van de data}
+JUPYTER NOTEBOOK NALOPEN
+
+De volgende stap is om te zorgen dat er meer duidelijkheid komt over wat de data inhoudt. Het is opgevallen dat er inconsistenties zijn in de data, zoals ontbrekende waarden en foutieve invoer. We moeten deze issues oplossen om accurate voorspellingen te kunnen maken. We hebben daarom de data opgeschoond door ontbrekende waarden te vullen of te verwijderen waar nodig, en fouten te corrigeren. Bijvoorbeeld, als er een tijd ontbreekt, kunnen we die niet gebruiken in ons model. Ook hebben we ervoor gezorgd dat alle data in het juiste formaat staat, zoals het omzetten van datums naar numerieke waarden die het model kan begrijpen.
+
+\subsection{Gekozen features}
 Op het eerste oog zijn wij breedschalig gaan kijken welke kolommen wij willen gebruiken. Uiteindelijk hebben we besloten om de volgende kolommen te gebruiken:
 \begin{itemize}
-    \item stm\_oorz\_code: Dit is de oorzaakcode die geclassificeerd wordt door de aannemer. Het geeft aan wat de oorzaak is van de storing.
-    \item stm\_geo\_mld: Dit is de geocode van waar het incident zich plaatsvindt. Hiermee weten we op welke locatie de storing is.
-    \item stm\_sap\_melddatum: Dit is de datum van wanneer de melding gemaakt is. Dit kan invloed hebben, bijvoorbeeld bij seizoensgebonden problemen.
-    \item stm\_aanntpl\_tijd: Dit is de tijd vanaf wanneer de aannemer aanwezig is. Vanaf dit moment kan de hersteltijd beginnen.
-    \item stm\_techn\_mld: Dit is de categorie waar de incident bij hoort. Bijvoorbeeld of het een mechanisch probleem is of een elektrisch probleem.
-    \item stm\_prioriteit: Dit is de prioriteitcode waarmee aangegeven wordt hoe hoog de prioriteit ligt.
+  \item \textbf{stm\_sap\_melddatum}: De datum van de melding.
+  \item \textbf{stm\_sap\_meldtijd}: De tijd van de melding.
+  \item \textbf{stm\_aanntplj\_tijd}: De tijd dat de aannemer ter plaatsen in. 
+  \item \textbf{stm\_progfh\_in\_duur}: De prognose van de functie hersteltijd.
+  \item \textbf{stm\_prioriteit}: De prioriteit van de storing.
+  \item \textbf{stm\_oorz\_code}: De oorzaak code vaar de storing in valt.
+  \item \textbf{stm\_contractgeb\_mld}: Het contractgebied van de melding.
+  \item \textbf{stm\_techn\_mld}: De techniekveld van de melding.
 \end{itemize}
 Deze kolommen hebben we gekozen omdat ze het meest relevant zijn voor het voorspellen van de hersteltijd. Ons target, oftewel wat we willen voorspellen, is targetherstel. Dit is de tijd die het duurt vanaf het moment dat de aannemer aanwezig is tot het moment dat het incident verholpen is.
 
-\subsection{Opschonen van de data}
-De volgende stap is om te zorgen dat er meer duidelijkheid komt over wat de data inhoudt. Het is opgevallen dat er inconsistenties zijn in de data, zoals ontbrekende waarden en foutieve invoer. We moeten deze issues oplossen om accurate voorspellingen te kunnen maken. We hebben daarom de data opgeschoond door ontbrekende waarden te vullen of te verwijderen waar nodig, en fouten te corrigeren. Bijvoorbeeld, als er een tijd ontbreekt, kunnen we die niet gebruiken in ons model. Ook hebben we ervoor gezorgd dat alle data in het juiste formaat staat, zoals het omzetten van datums naar numerieke waarden die het model kan begrijpen.
+\subsection{Voorspel Target}
+Lorem Ipsum
 
 \newpage
 \section{Modellen}
