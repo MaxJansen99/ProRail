@@ -4,7 +4,7 @@
 .ipynb_checkpoints
 
 Data/
-Models/ 
+Models/
 
 Flask/__pycache__/
 Flask/instance/

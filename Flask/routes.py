@@ -75,8 +75,9 @@ def report():
             "stm_contractgeb_mld": int(request.form.get("stm_contractgeb_mld")),
             "stm_techn_mld_encoded": int(request.form.get("stm_techn_mld_encoded")),
         }
-        predictor = Predictor()
-        _, prediction = predictor.predict(data)
+
+        predictor = Predictor()  # Instantiate the Predictor class
+        _, prediction = predictor.predict(data)  # Pass data as it is
 
         return render_template("prediction.html", prediction=prediction)
 

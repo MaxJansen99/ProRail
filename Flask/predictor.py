@@ -49,7 +49,7 @@ class Predictor:
             [
                 {
                     "stm_sap_meldtijd": stm_sap_meldtijd,
-                    "stm_sap_melddatum": day_of_year,
+                    "day_of_year": day_of_year,
                     "stm_aanntpl_tijd": stm_aanntpl_tijd,
                     "stm_progfh_in_duur": data["stm_progfh_in_duur"],
                 }
@@ -60,7 +60,7 @@ class Predictor:
         rf_data = pd.DataFrame(
             [
                 {
-                    "stm_sap_melddatum": day_of_year,
+                    "day_of_year": day_of_year,
                     "meldtijd_bin": meldtijd_bin,
                     "aanntpl_tijd_bin": aanntpl_tijd_bin,
                     "progfh_in_duur_bin": progfh_in_duur_bin,
