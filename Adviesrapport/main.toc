@@ -19,13 +19,13 @@
 \contentsline {subsection}{\numberline {4.2}Het Onderzoek}{7}{}%
 \contentsline {subsection}{\numberline {4.3}Opschonen van de data}{7}{}%
 \contentsline {subsection}{\numberline {4.4}Gekozen features}{7}{}%
-\contentsline {subsection}{\numberline {4.5}Voorspel Target}{7}{}%
-\contentsline {section}{\numberline {5}Modellen}{8}{}%
-\contentsline {subsection}{\numberline {5.1}Lineaire Regressie}{8}{}%
-\contentsline {subsection}{\numberline {5.2}Decision Tree}{8}{}%
-\contentsline {subsection}{\numberline {5.3}Random Forest}{8}{}%
-\contentsline {section}{\numberline {6}Resultaten van de modellen}{8}{}%
-\contentsline {section}{\numberline {7}Applicatie}{9}{}%
-\contentsline {subsection}{\numberline {7.1}Ontwerp van de applicatie}{9}{}%
-\contentsline {subsection}{\numberline {7.2}Implementatie en veiligheid}{9}{}%
-\contentsline {section}{\numberline {8}Conclusie}{10}{}%
+\contentsline {subsection}{\numberline {4.5}Voorspel Target}{8}{}%
+\contentsline {section}{\numberline {5}Modellen}{9}{}%
+\contentsline {subsection}{\numberline {5.1}Lineaire Regressie}{9}{}%
+\contentsline {subsection}{\numberline {5.2}Decision Tree}{9}{}%
+\contentsline {subsection}{\numberline {5.3}Random Forest}{9}{}%
+\contentsline {section}{\numberline {6}Resultaten van de modellen}{9}{}%
+\contentsline {section}{\numberline {7}Applicatie}{10}{}%
+\contentsline {subsection}{\numberline {7.1}Ontwerp van de applicatie}{10}{}%
+\contentsline {subsection}{\numberline {7.2}Implementatie en veiligheid}{10}{}%
+\contentsline {section}{\numberline {8}Conclusie}{11}{}%

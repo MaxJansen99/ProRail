@@ -103,19 +103,13 @@ Tijdens het project kwamen we verschillende knelpunten tegen, zowel in het proce
 \section{Data}
 
 \subsection{Waar we mee werken}
-Nu we weten hoe het hele proces verloopt, kunnen we ons gaan richten op mischien wel het belangrijkste deel van het project: de data. Op basis van de data gaan de voorspellingen gemaakt worden namelijk. En als we niet goed begrijpen hoe de data werkt, kunnen we geen goede modellen maken. Daarom zijn wij grondig onderzoek gaan doen waar we mee te werk gaan. 
-
-Het is dus ook belangrijk om te weten hoe de data in elkaar zit en wat we gaan gebruiken. Door het proces goed te begrijpen, kunnen we bepalen op welk moment in de workflow onze voorspellingen het meest nuttig zijn. Bijvoorbeeld, zodra een storing gemeld wordt, is er nog weinig informatie beschikbaar. Maar wanneer de aannemer ter plekke is, hebben we meer data om een nauwkeurige voorspelling te maken.
+Nu we weten hoe het hele proces verloopt, kunnen we ons gaan richten op misschien wel het belangrijkste deel van het project: de data. De voorspellingen die wij gaan doen, zijn volledig gebaseerd op deze data. Als we niet goed begrijpen hoe de data werkt, kunnen we geen betrouwbare modellen maken. Daarom hebben we grondig onderzocht wat er precies in de dataset staat en hoe deze past binnen de workflow van het bedrijf. Door het proces goed te begrijpen, kunnen we bepalen op welk moment in die workflow onze voorspellingen het meest van waarde zijn. Bijvoorbeeld: bij het eerste meldmoment is er nog weinig informatie beschikbaar, maar zodra de aannemer ter plaatse is, beschikken we over meer gegevens die het mogelijk maken om een nauwkeurige inschatting te geven van de hersteltijd.
 
 \subsection{Het Onderzoek}
-JUPYTER NOTEBOOK NALOPEN
-
-Daarna zijn we ons gaan focussen op de data. Dit is een van de belangrijkste onderdelen aangezien we moeten weten waar we mee werken. Er moet zekerheid zijn over de data of alles wel juist is. Er staan vaak namelijk verkeerde en/of zelfs lege plekken in de data. Als eerste zijn we gaan onderzoeken wat er allemaal in de data zit.
+Daarna zijn we ons gaan focussen op de inhoud van de dataset, aangezien dit de basis vormt van alles wat we gaan doen. We hebben te maken met een grote dataset van ongeveer 800.000 rijen vol storingsinformatie, bestaande uit tekstvelden, tijdstempels, numerieke waarden en categorische kenmerken. Tijdens de verkenning viel meteen op dat er veel dubbele rijen, lege velden en onlogische tijdswaarden aanwezig waren. Deze kunnen het leerproces van een model verstoren, dus zijn we kritisch gaan kijken naar welke informatie betrouwbaar en bruikbaar is. Door per kolom te analyseren hoe vaak waarden voorkomen, hoe logisch ze zijn en hoe ze zich verhouden tot andere velden, kregen we een goed beeld van de kwaliteit en structuur van de data.
 
 \subsection{Opschonen van de data}
-JUPYTER NOTEBOOK NALOPEN
-
-De volgende stap is om te zorgen dat er meer duidelijkheid komt over wat de data inhoudt. Het is opgevallen dat er inconsistenties zijn in de data, zoals ontbrekende waarden en foutieve invoer. We moeten deze issues oplossen om accurate voorspellingen te kunnen maken. We hebben daarom de data opgeschoond door ontbrekende waarden te vullen of te verwijderen waar nodig, en fouten te corrigeren. Bijvoorbeeld, als er een tijd ontbreekt, kunnen we die niet gebruiken in ons model. Ook hebben we ervoor gezorgd dat alle data in het juiste formaat staat, zoals het omzetten van datums naar numerieke waarden die het model kan begrijpen.
+De volgende stap was het opschonen van de data, zodat deze geschikt is voor het bouwen van modellen. We hebben verschillende problemen ontdekt, zoals foutieve of ontbrekende waarden, en kolommen die volledig leeg of niet relevant zijn voor ons doel. Vooral kolommen die eindigen op \_gst bleken overbodig en zijn verwijderd. Vervolgens hebben we tijdvelden omgezet naar het aantal minuten sinds middernacht, zodat ze rekenkundig verwerkt konden worden. Daarnaast hebben we filters toegepast: storingen die korter dan 15 minuten of langer dan 8 uur duren zijn uitgesloten, omdat deze extreemwaarden het model negatief beïnvloeden. Ook zijn dubbele rijen verwijderd en foutieve prognosewaarden eruit gefilterd of gecorrigeerd waar mogelijk. Door deze stappen kregen we een schonere en betrouwbaardere dataset waarmee we verder konden.
 
 \subsection{Gekozen features}
 Op het eerste oog zijn wij breedschalig gaan kijken welke kolommen wij willen gebruiken. Uiteindelijk hebben we besloten om de volgende kolommen te gebruiken:
@@ -132,22 +126,26 @@ Op het eerste oog zijn wij breedschalig gaan kijken welke kolommen wij willen ge
 Deze kolommen hebben we gekozen omdat ze het meest relevant zijn voor het voorspellen van de hersteltijd. Ons target, oftewel wat we willen voorspellen, is targetherstel. Dit is de tijd die het duurt vanaf het moment dat de aannemer aanwezig is tot het moment dat het incident verholpen is.
 
 \subsection{Voorspel Target}
-Lorem Ipsum
+Nu we weten welke data we gebruiken, is het tijd om te kijken naar wat we precies willen voorspellen. In ons geval is dat de hersteltijd van een storing, vanaf het moment dat de aannemer aanwezig is. Dit noemen we het target, en die kolom heet targetherstel. Deze waarde geeft aan hoeveel minuten het duurt vanaf aankomst tot volledige oplossing van de storing. Bij het analyseren van deze target zagen we dat 25\% van de storingen binnen 10 minuten opgelost is, terwijl sommige gevallen juist dagen of zelfs maanden duren. Om te voorkomen dat deze extremen de prestaties van het model verstoren, hebben we storingen onder de 15 minuten en boven de 8 uur uitgesloten.
 
 \newpage
 \section{Modellen}
 
 \subsection{Lineaire Regressie}
-Lorem Ipsum
+Als eerste hebben we een lineair regressiemodel toegepast. Dit model probeert de hersteltijd te voorspellen door een rechte lijn te trekken door de data, waarbij elke feature een lineaire bijdrage levert aan de uitkomst. Het voordeel van lineaire regressie is dat het eenvoudig en snel te trainen is, en dat het makkelijk te interpreteren is. Toch zagen we dat de prestaties beperkt bleven, vooral omdat het model moeite had met het vangen van niet-lineaire verbanden in de data. De R²-waarde was lager dan verwacht en de voorspellingen verbeterden slechts licht ten opzichte van de baseline.
 
 \subsection{Decision Tree}
-Lorem Ipsum
+Vervolgens hebben we een decision tree model gebruikt. Dit model splitst de data stapsgewijs op basis van de belangrijkste kenmerken, waardoor het complexe, niet-lineaire relaties kan vangen. De boom verdeelde de hersteltijd in tijdsklassen van ongeveer 15 minuten, wat hielp om specifieke groepen storingen beter te onderscheiden. Dit resulteerde in een verbetering van de nauwkeurigheid en een lagere RMSE ten opzichte van lineaire regressie. Een nadeel was dat het model geneigd was tot overfitting, waardoor het minder goed generaliseerde naar nieuwe data.
 
 \subsection{Random Forest}
-Lorem Ipsum
+Als laatste hebben we een Random Forest model getraind, wat eigenlijk een verzameling van meerdere decision trees is. Door het combineren van verschillende bomen vermindert het model overfitting en verbetert het de robuustheid van de voorspellingen. Met geoptimaliseerde hyperparameters leverde het Random Forest model de beste resultaten: een lagere RMSE en een hogere nauwkeurigheid dan de voorgaande modellen. Toch bleef er ruimte voor verbetering, vooral op het gebied van coverage, oftewel het betrouwbaar voorspellen van een breed scala aan storingsgevallen.
 
 \section{Resultaten van de modellen}
-Lorem Ispum
+De modellen zijn beoordeeld op basis van root mean squared error (RMSE), accuracy binnen een tolerantie van ±15 minuten, en coverage, het percentage voorspellingen dat een betrouwbare inschatting gaf.
+
+Het baseline model behaalde een accuracy van ongeveer 35\%, waarbij voorspellingen vaak de hersteltijd overschatten. Lineaire regressie verbeterde de accuracy iets naar circa 42\%, maar had nog steeds moeite met het modelleren van complexe patronen. Decision Trees lieten een verdere verbetering zien in zowel RMSE als accuracy, maar waren gevoelig voor overfitting.
+
+Het Random Forest model presteerde het beste, met een accuracy die ruim 10\% hoger lag dan de baseline, de huidige menselijke prognose, en een duidelijk lagere RMSE. Dit betekent dat het model beter in staat is om de hersteltijd nauwkeurig te voorspellen dan de standaard inschattingen die nu worden gebruikt. Toch bleek dat ongeveer 80\% van de voorspellingen nog steeds de hersteltijd overschatte, wat aangeeft dat het model voorzichtig moet worden ingezet. De resultaten tonen aan dat er duidelijke vooruitgang is geboekt, maar dat verdere optimalisatie nodig is om betrouwbare en bruikbare voorspellingen te garanderen in de praktijk.
 
 \newpage
 \section{Applicatie}
