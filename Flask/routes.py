@@ -3,8 +3,7 @@ from app import app, db
 from models import User
 from forms import RegistrationForm, LoginForm, PredictForm
 from flask_login import login_user, current_user, logout_user, login_required
-import pandas as pd
-import numpy as np
+from predictor import Predictor
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -62,9 +61,25 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/report")
+@app.route("/report", methods=["GET", "POST"])
 @login_required
 def report():
+    if request.method == "POST":
+        data = {
+            "stm_sap_melddatum": request.form.get("stm_sap_melddatum"),
+            "stm_sap_meldtijd": request.form.get("stm_sap_meldtijd"),
+            "stm_aanntpl_tijd": request.form.get("stm_aanntpl_tijd"),
+            "stm_progfh_in_duur": int(request.form.get("stm_progfh_in_duur")),
+            "stm_prioriteit": int(request.form.get("stm_prioriteit")),
+            "stm_oorz_code": int(request.form.get("stm_oorz_code")),
+            "stm_contractgeb_mld": int(request.form.get("stm_contractgeb_mld")),
+            "stm_techn_mld_encoded": int(request.form.get("stm_techn_mld_encoded")),
+        }
+        predictor = Predictor()
+        _, prediction = predictor.predict(data)
+
+        return render_template("prediction.html", prediction=prediction)
+
     form = PredictForm()
 
     return render_template("report.html", form=form)
@@ -73,45 +88,4 @@ def report():
 @app.route("/old")
 @login_required
 def old():
-    df = pd.read_csv("static/data/data.csv")
-    df = df[
-        [
-            "stm_oorz_code",
-            "stm_sap_melddatum",
-            "stm_sap_meldtijd",
-            "stm_geo_mld",
-            "stm_aanntpl_dd",
-            "stm_aanntpl_tijd",
-            "stm_fh_dd",
-            "stm_fh_tijd",
-            "stm_techn_mld",
-            "stm_prioriteit",
-            "stm_fh_duur",
-        ]
-    ]
-    df = df.rename(
-        columns={
-            "stm_oorz_code": "Oorzaakcode",
-            "stm_sap_melddatum": "Melddatum",
-            "stm_sap_meldtijd": "Meldtijd",
-            "stm_geo_mld": "Geocode",
-            "stm_aanntpl_dd": "Aannemer Aanwezig Datum",
-            "stm_aanntpl_tijd": "Aannemer Aanwezig Tijd",
-            "stm_fh_dd": "Hersteldatum",
-            "stm_fh_tijd": "Hersteltijd",
-            "stm_techn_mld": "Technischemelding",
-            "stm_prioriteit": "Prioriteit",
-            "stm_fh_duur": "Herstelduur",
-        }
-    )
-
-    pages = int(np.ceil(len(df) / 22))
-    current = int(request.args.get("page", 1))
-    start = (current - 1) * 22
-    end = current * 22
-    data = df[start:end].to_dict(orient="records")
-
-    return render_template(
-        "old.html", data=data, current=current, start=start, end=end, pages=pages
-    )
-
+    return render_template("old.html")

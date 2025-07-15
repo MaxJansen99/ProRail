@@ -4,35 +4,43 @@
   <form method="POST">
     <div class="row p-2">
       <div class="col">
-        {{ form.stm_oorz_code.label }}
-        {{ form.stm_oorz_code(class="form-control bg-body-tertiary border border-body-subtle")}}
-      </div>
-      <div class="col">
-        {{ form.stm_geo_mld.label }}
-        {{ form.stm_geo_mld(class="form-control bg-body-tertiary border border-body-subtle")}}
-      </div>
-      <div class="col">
         {{ form.stm_sap_melddatum.label }}
         {{ form.stm_sap_melddatum(class="form-control bg-body-tertiary border border-body-subtle")}}
       </div>
-    </div>
-    <div class="row p-2">
+      <div class="col">
+        {{ form.stm_sap_meldtijd.label }}
+        {{ form.stm_sap_meldtijd(class="form-control bg-body-tertiary border border-body-subtle")}}
+      </div>
       <div class="col">
         {{ form.stm_aanntpl_tijd.label }}
         {{ form.stm_aanntpl_tijd(class="form-control bg-body-tertiary border border-body-subtle")}}
       </div>
       <div class="col">
-        {{ form.stm_techn_mld.label }}
-        {{ form.stm_techn_mld(class="form-control bg-body-tertiary border border-body-subtle")}}
-      </div>
-      <div class="col">
-        {{ form.stm_prioriteit.label }}
-        {{ form.stm_prioriteit(class="form-control bg-body-tertiary border border-body-subtle")}}
+        {{ form.stm_progfh_in_duur.label }}
+        {{ form.stm_progfh_in_duur(class="form-control bg-body-tertiary border border-body-subtle")}}
       </div>
     </div>
     <div class="row p-2">
       <div class="col">
-        <button type="submit" class="btn btn-danger disabled w-100" style="background:#b71a20; border-color:#8f1a20;">Verstuur</button>
+        {{ form.stm_prioriteit.label }}
+        {{ form.stm_prioriteit(class="form-control bg-body-tertiary border border-body-subtle")}}
+      </div>
+      <div class="col">
+        {{ form.stm_oorz_code.label }}
+        {{ form.stm_oorz_code(class="form-control bg-body-tertiary border border-body-subtle")}}
+      </div>
+      <div class="col">
+        {{ form.stm_contractgeb_mld.label }}
+        {{ form.stm_contractgeb_mld(class="form-control bg-body-tertiary border border-body-subtle")}}
+      </div>
+      <div class="col">
+        {{ form.stm_techn_mld_encoded.label }}
+        {{ form.stm_techn_mld_encoded(class="form-control bg-body-tertiary border border-body-subtle")}}
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="col">
+        <button type="submit" class="btn btn-danger w-100" style="background:#b71a20; border-color:#8f1a20;">Verstuur</button>
       </div>
     </div>
   </form>
