@@ -1,18 +1,10 @@
 .venv
+
 .idea
 .ipynb_checkpoints
-.virtual_documents
 
 Data/
-sap_storing_data_hu_project.csv
-sap_storing_data_hu_subset.csv
+Models/ 
 
-neuraal netwerk.py
-newdataset.csv
-
-Flask/__pycache__
-Flask/instance/user.db
-Flask/static/data/data.csv
-Flask/static/data/LinearRegressionModel.joblib
-
-.venv
+Flask/__pycache__/
+Flask/instance/
