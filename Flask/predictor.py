@@ -6,9 +6,9 @@ from joblib import load
 class Predictor:
     def __init__(self):
         # Laad vooraf getrainde modellen (lineaire regressie & random forest classifier)
-        self.linear_regression_model = load("LinearRegressionModel.joblib")
+        self.linear_regression_model = load("../Models/LinearRegressionModel.joblib")
         self.random_forest_model = load(
-            "RandomForest.joblib"
+            "../Models/RandomForest.joblib"
         )  # Zorg dat dit een classifier is
 
     def predict(self, data: dict):
@@ -23,7 +23,7 @@ class Predictor:
         """
 
         # omzetten naar dag van de jaar
-        date_obj = datetime.strptime(data["stm_sap_melddatum"], "%Y/%m/%d")
+        date_obj = datetime.strptime(data["stm_sap_melddatum"], "%Y-%m-%d")
         day_of_year = date_obj.timetuple().tm_yday
 
         # om
@@ -85,7 +85,7 @@ class Predictor:
 if __name__ == "__main__":
     # Voorbeeld invoerdata
     data = {
-        "stm_sap_melddatum": "2006/02/01",
+        "stm_sap_melddatum": "2006-02-01",
         "stm_sap_meldtijd": "09:00",
         "stm_aanntpl_tijd": "11:00",
         "stm_progfh_in_duur": 52,

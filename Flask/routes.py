@@ -75,13 +75,10 @@ def report():
             "stm_contractgeb_mld": int(request.form.get("stm_contractgeb_mld")),
             "stm_techn_mld_encoded": int(request.form.get("stm_techn_mld_encoded")),
         }
-
-        # return f"{data}"
-
         predictor = Predictor()
-        lr_prediction, rf_prediction = predictor.predict(data)
+        _, prediction = predictor.predict(data)
 
-        return f"Linear Regression: {lr_prediction} <br> Random Forest Regressor: {rf_prediction}"
+        return render_template("prediction.html", prediction=prediction)
 
     form = PredictForm()
 
