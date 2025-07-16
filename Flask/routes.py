@@ -1,9 +1,11 @@
 from flask import render_template, redirect, url_for, request, flash
 from app import app, db
 from models import User
-from forms import RegistrationForm, LoginForm, PredictForm
+from forms import RegistrationForm, LoginForm, PredictForm, OldForm
 from flask_login import login_user, current_user, logout_user, login_required
 from predictor import Predictor
+from old import Old
+import pandas as pd
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -65,7 +67,7 @@ def logout():
 @login_required
 def report():
     if request.method == "POST":
-        data = {
+        post = {
             "stm_sap_melddatum": request.form.get("stm_sap_melddatum"),
             "stm_sap_meldtijd": request.form.get("stm_sap_meldtijd"),
             "stm_aanntpl_tijd": request.form.get("stm_aanntpl_tijd"),
@@ -76,16 +78,37 @@ def report():
             "stm_techn_mld_encoded": int(request.form.get("stm_techn_mld_encoded")),
         }
         predictor = Predictor()
-        _, prediction = predictor.predict(data)
+        linearregression, randomforest = predictor.predict(post)
     else:
-        prediction = None
+        linearregression, randomforest = None, None
 
     form = PredictForm()
 
-    return render_template("report.html", form=form, prediction=prediction)
+    return render_template("report.html", form=form, linearregression=linearregression, randomforest=randomforest)
 
 
-@app.route("/old")
+@app.route("/old", methods=["GET", "POST"])
 @login_required
 def old():
-    return render_template("old.html")
+    if request.method == "POST":
+        post = {
+            "stm_oorz_code": int(request.form.get("stm_oorz_code")),
+            "stm_contractgeb_mld": int(request.form.get("stm_contractgeb_mld")),
+            "stm_techn_mld": request.form.get("stm_techn_mld"),
+            "stm_prioriteit": int(request.form.get("stm_prioriteit")),
+        }
+
+        data = Old('../Data/sap_storing_data_hu_filtered.csv')
+        data = data.filter_data(
+            stm_oorz_code=post["stm_oorz_code"],
+            stm_contractgeb_mld=post["stm_contractgeb_mld"],
+            stm_techn_mld=post["stm_techn_mld"],
+            stm_prioriteit=post["stm_prioriteit"]
+        )
+        print(data)
+    else:
+        data = None
+
+    form = OldForm()
+
+    return render_template("old.html", form=form, data=data)

@@ -44,10 +44,15 @@
       </div>
     </div>
   </form>
-  {% if prediction %}
-    <div class="row px-2 py-4">
+  {% if linearregression %}
+    <div class="row px-2 py-4 text-center">
       <div class="col">
-        <h1>De Storing zal tussen {{ prediction }} en {{ prediction + 15 }} minuten worden opgelost.</h1>
+        <h1>Linear Regression:</h1>
+        <h4>Hersteltijd: {{ linearregression }} minuten</h4>
+      </div>
+      <div class="col">
+        <h1>Random Forest:</h1>
+        <h4>Hersteltijd: {{ randomforest }} tot {{ randomforest + 15 }} minuten</h4>
       </div>
     </div>
   {% endif %}
