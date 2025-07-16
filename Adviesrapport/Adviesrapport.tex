@@ -111,6 +111,27 @@ Daarna zijn we ons gaan focussen op de inhoud van de dataset, aangezien dit de b
 \subsection{Opschonen van de data}
 De volgende stap was het opschonen van de data, zodat deze geschikt is voor het bouwen van modellen. We hebben verschillende problemen ontdekt, zoals foutieve of ontbrekende waarden, en kolommen die volledig leeg of niet relevant zijn voor ons doel. Vooral kolommen die eindigen op \_gst bleken overbodig en zijn verwijderd. Vervolgens hebben we tijdvelden omgezet naar het aantal minuten sinds middernacht, zodat ze rekenkundig verwerkt konden worden. Daarnaast hebben we filters toegepast: storingen die korter dan 15 minuten of langer dan 8 uur duren zijn uitgesloten, omdat deze extreemwaarden het model negatief beïnvloeden. Ook zijn dubbele rijen verwijderd en foutieve prognosewaarden eruit gefilterd of gecorrigeerd waar mogelijk. Door deze stappen kregen we een schonere en betrouwbaardere dataset waarmee we verder konden.
 
+\subsection{Analyse van de hersteltijd}
+Om een beter beeld te krijgen van de verdeling van de hersteltijd hebben we verschillende visualisaties gemaakt. Hieronder kunnen we zien hoe de data zich gedraagt voordat en nadat we de extreme waarden hebben weggehaald.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{boxplot_FH_duur.png}
+    \caption{Boxplot van de oorspronkelijke data - veel extreme waarden}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{boxplot_target.png}
+    \caption{Boxplot na het wegfilteren van extreme waarden - veel schonere verdeling}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{boxplot_target_filter.png}
+    \caption{Boxplot van de definitieve dataset - klaar voor modeltraining}
+\end{figure}
+
 \subsection{Gekozen features}
 Op het eerste gezicht zijn wij breed gaan kijken welke kolommen wij willen gebruiken. Uiteindelijk hebben we besloten om de volgende kolommen te gebruiken:
 \begin{itemize}
@@ -124,6 +145,33 @@ Op het eerste gezicht zijn wij breed gaan kijken welke kolommen wij willen gebru
   \item \textbf{stm\_techn\_mld}: Het techniekgebied van de melding.
 \end{itemize}
 Deze kolommen hebben we gekozen omdat ze het meest relevant zijn voor het voorspellen van de hersteltijd. Ons target, oftewel wat we willen voorspellen, is targetherstel. Dit is de tijd die het duurt vanaf het moment dat de aannemer aanwezig is tot het moment dat het incident verholpen is.
+
+\subsection{Analyse per kenmerk}
+Door de data per kenmerk te analyseren, krijgen we inzicht in welke factoren de grootste invloed hebben op de hersteltijd. Hieronder kunnen we zien hoe de gemiddelde hersteltijd varieert per contractgebied, geografische locatie, oorzaakcode en prioriteit.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{contractgeb.png}
+    \caption{Gemiddelde hersteltijd per contractgebied - duidelijke verschillen tussen regio's}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{Geo.png}
+    \caption{Gemiddelde hersteltijd per geografische locatie - grote spreiding in het land}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{oorzakcode.png}
+    \caption{Gemiddelde hersteltijd per oorzaakcode - verschillende typen storingen variëren sterk}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{priorteit.png}
+    \caption{Gemiddelde hersteltijd per prioriteit - hogere prioriteit niet altijd sneller opgelost}
+\end{figure}
 
 \subsection{Voorspeltarget}
 Nu we weten welke data we gebruiken, is het tijd om te kijken naar wat we precies willen voorspellen. In ons geval is dat de hersteltijd van een storing, vanaf het moment dat de aannemer aanwezig is. Dit noemen we het target, en die kolom heet targetherstel. Deze waarde geeft aan hoeveel minuten het duurt vanaf aankomst tot volledige oplossing van de storing. Bij het analyseren van deze target zagen we dat 25\% van de storingen binnen 10 minuten opgelost is, terwijl sommige gevallen juist dagen of zelfs maanden duren. Om te voorkomen dat deze extremen de prestaties van het model verstoren, hebben we storingen onder de 15 minuten en boven de 8 uur uitgesloten.

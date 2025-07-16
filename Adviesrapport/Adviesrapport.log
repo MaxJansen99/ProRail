@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.15)  16 JUL 2025 13:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.4.15)  16 JUL 2025 14:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -210,12 +210,7 @@ Package pdftex.def Info: prorail.png  used on input line 20.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./prorail.png>]
-(./Adviesrapport.toc
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 3.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 3.
-)
+(./Adviesrapport.toc)
 \tf@toc=\write3
 \openout3 = `Adviesrapport.toc'.
 
@@ -224,6 +219,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 [2]
 
 [3]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 49.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 49.
+
 
 [4]
 
@@ -239,26 +239,72 @@ Package pdftex.def Info: bpmn.png  used on input line 68.
  (PNG copy)>]
 
 [7]
+<boxplot_FH_duur.png, id=37, 653.44125pt x 591.20876pt>
+File: boxplot_FH_duur.png Graphic file (type png)
+<use boxplot_FH_duur.png>
+Package pdftex.def Info: boxplot_FH_duur.png  used on input line 119.
+(pdftex.def)             Requested size: 284.52756pt x 257.42632pt.
+
 
 [8]
+<boxplot_target.png, id=41, 784.9325pt x 651.43375pt>
+File: boxplot_target.png Graphic file (type png)
+<use boxplot_target.png>
+Package pdftex.def Info: boxplot_target.png  used on input line 125.
+(pdftex.def)             Requested size: 284.52756pt x 236.1362pt.
+<boxplot_target_filter.png, id=42, 627.34375pt x 654.445pt>
+File: boxplot_target_filter.png Graphic file (type png)
+<use boxplot_target_filter.png>
+Package pdftex.def Info: boxplot_target_filter.png  used on input line 131.
+(pdftex.def)             Requested size: 284.52756pt x 296.82426pt.
 
-[9]
 
-[10]
+[9 <./boxplot_FH_duur.png> <./boxplot_target.png>]
+<contractgeb.png, id=48, 1088.065pt x 595.22375pt>
+File: contractgeb.png Graphic file (type png)
+<use contractgeb.png>
+Package pdftex.def Info: contractgeb.png  used on input line 154.
+(pdftex.def)             Requested size: 341.43306pt x 186.77896pt.
 
-[11]
 
-[12] (./Adviesrapport.aux)
+[10 <./boxplot_target_filter.png>]
+<Geo.png, id=53, 1026.83624pt x 595.22375pt>
+File: Geo.png Graphic file (type png)
+<use Geo.png>
+Package pdftex.def Info: Geo.png  used on input line 160.
+(pdftex.def)             Requested size: 341.43306pt x 197.91396pt.
+<oorzakcode.png, id=54, 1024.82875pt x 596.2275pt>
+File: oorzakcode.png Graphic file (type png)
+<use oorzakcode.png>
+Package pdftex.def Info: oorzakcode.png  used on input line 166.
+(pdftex.def)             Requested size: 341.43306pt x 198.6389pt.
+
+
+[11 <./contractgeb.png> <./Geo.png>]
+<priorteit.png, id=60, 1041.8925pt x 592.2125pt>
+File: priorteit.png Graphic file (type png)
+<use priorteit.png>
+Package pdftex.def Info: priorteit.png  used on input line 172.
+(pdftex.def)             Requested size: 341.43306pt x 194.06622pt.
+
+
+[12 <./oorzakcode.png> <./priorteit.png>]
+
+[13]
+
+[14]
+
+[15] (./Adviesrapport.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3403 strings out of 473190
- 57007 string characters out of 5722593
- 476189 words of memory out of 5000000
- 26652 multiletter control sequences out of 15000+600000
+ 3452 strings out of 473190
+ 58120 string characters out of 5722593
+ 474196 words of memory out of 5000000
+ 26701 multiletter control sequences out of 15000+600000
  563780 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,11n,71p,1179b,421s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -269,10 +315,10 @@ ts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public
 r17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/
 share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-di
 st/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on Adviesrapport.pdf (12 pages, 282715 bytes).
+Output written on Adviesrapport.pdf (15 pages, 454927 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

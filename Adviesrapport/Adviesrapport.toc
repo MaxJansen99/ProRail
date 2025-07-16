@@ -18,15 +18,17 @@
 \contentsline {subsection}{\numberline {4.1}Waar we mee werken}{8}{}%
 \contentsline {subsection}{\numberline {4.2}Het onderzoek}{8}{}%
 \contentsline {subsection}{\numberline {4.3}Opschonen van de data}{8}{}%
-\contentsline {subsection}{\numberline {4.4}Gekozen features}{8}{}%
-\contentsline {subsection}{\numberline {4.5}Voorspeltarget}{9}{}%
-\contentsline {section}{\numberline {5}Modellen}{10}{}%
-\contentsline {subsection}{\numberline {5.1}Lineaire regressie}{10}{}%
-\contentsline {subsection}{\numberline {5.2}Decision Tree}{10}{}%
-\contentsline {subsection}{\numberline {5.3}Random Forest}{10}{}%
-\contentsline {section}{\numberline {6}Resultaten van de modellen}{10}{}%
-\contentsline {section}{\numberline {7}Applicatie}{11}{}%
-\contentsline {subsection}{\numberline {7.1}Ontwerp van de applicatie}{11}{}%
-\contentsline {subsection}{\numberline {7.2}Implementatie en veiligheid}{11}{}%
-\contentsline {subsection}{\numberline {7.3}Werking van de applicatie}{11}{}%
-\contentsline {section}{\numberline {8}Conclusie}{12}{}%
+\contentsline {subsection}{\numberline {4.4}Analyse van de hersteltijd}{8}{}%
+\contentsline {subsection}{\numberline {4.5}Gekozen features}{10}{}%
+\contentsline {subsection}{\numberline {4.6}Analyse per kenmerk}{10}{}%
+\contentsline {subsection}{\numberline {4.7}Voorspeltarget}{12}{}%
+\contentsline {section}{\numberline {5}Modellen}{13}{}%
+\contentsline {subsection}{\numberline {5.1}Lineaire regressie}{13}{}%
+\contentsline {subsection}{\numberline {5.2}Decision Tree}{13}{}%
+\contentsline {subsection}{\numberline {5.3}Random Forest}{13}{}%
+\contentsline {section}{\numberline {6}Resultaten van de modellen}{13}{}%
+\contentsline {section}{\numberline {7}Applicatie}{14}{}%
+\contentsline {subsection}{\numberline {7.1}Ontwerp van de applicatie}{14}{}%
+\contentsline {subsection}{\numberline {7.2}Implementatie en veiligheid}{14}{}%
+\contentsline {subsection}{\numberline {7.3}Werking van de applicatie}{14}{}%
+\contentsline {section}{\numberline {8}Conclusie}{15}{}%
